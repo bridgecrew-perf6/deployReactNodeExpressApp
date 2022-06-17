@@ -42,7 +42,8 @@ const UserComp = () =>  {
      }
   
 
-      {/* <button onClick={() => getUserIpData()} > Click to see Ip Data </button> */}
+      
+      <button onClick={() => getUserIpData()} > Click to see Ip Data </button>
      
       {/* {
           userData && JSON.stringify(userData)

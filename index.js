@@ -5,6 +5,8 @@ const { path } = require('express/lib/application');
 const app= express();
 app.use(cors());
 
+const expressip = require('express-ip');
+app.use(expressip().getIpInfoMiddleware);
 
 
 app.get("/api", (req, res) => {
@@ -21,6 +23,13 @@ if(process.env.NODE_ENV === 'production') {
         res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
     })
   }
+
+  app.get('/client-cokkie-handler', function (req, res) {
+    console.log('req.ipInfo ===>>>>> ', req.ipInfo);
+    res.json({
+        ipData: req.ipInfo
+    })
+  })
 
 const serverPort = process.env.PORT || 5000;  
 
