@@ -4,15 +4,27 @@ const axios= require('axios');
 const { path } = require('express/lib/application');
 const app= express();
 app.use(cors());
-
-
-console.log('======= before : ', req?.inInfo);
 const expressip = require('express-ip');
+
+app.use((req,res,nextMiddleware) => {
+    console.log('********* before usimg express-ip ******');
+    console.log('req.ip earlier is : ', req?.ipInfo);
+    nextMiddleware();
+  })
+
+
 app.use(expressip().getIpInfoMiddleware);
-console.log('******* After : ', req?.inInfo);
+
+app.use((req,res,nextMiddleware) => {
+    console.log('++++++++++++ after usimg express-ip ******');
+    console.log('req.ip now is : ', req?.ipInfo);
+    nextMiddleware();
+})
+
 
 app.get("/api", (req, res) => {
     const user= req.query.user || 'swat1508';
+    console.log('req is : ', req);
     axios.get(`https://api.github.com/users/${user}`)
     .then(response => {
         res.json({user: response.data});
@@ -28,7 +40,7 @@ if(process.env.NODE_ENV === 'production') {
 
   app.get('/client-cokkie-handler', function (req, res) {
     console.log('req.ipInfo ===>>>>> ', req?.ipInfo);
-    
+
     res.json({
         ipData: req.ipInfo
     })
