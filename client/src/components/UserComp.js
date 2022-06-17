@@ -4,51 +4,33 @@ import axios from 'axios';
 
 const UserComp = () =>  {
 
-    const [userData, setUserData] = useState({});
-
-    useEffect(() => {
-
-    axios.get('/api')
-        .then(response => {
-            setUserData(response.data)
-        })
-    
-
-    }, [])
+    const [userIpData, setUserIpData] = useState({});
 
     const getUserIpData = () => {
       console.log('getUserIpData');
-      /*
-      fetch('/api')
-      .then(res => res.json())
-      .then(data =>  console.log('data from server is : ' ,  data?.users) );
-      */
+
       fetch('/client-cokkie-handler')
       .then(res => res.json())
-      .then(data =>  console.log('data from server is : ' ,  data?.ipData) );
+      // .then(data =>  {}console.log('data from server is : ' ,  data?.ipData) );
+      .then(data => {
+        console.log('data from server is : ' ,  data?.ipData);
+        setUserIpData(data?.ipData);
+      })
 
     }
     
   return (
     <div>
-     <h2> This is User Component </h2>
+     <h2> User Ip Data will display Below :</h2>
      {
-         userData && (
+         userIpData && (
              <>
-                <p>{userData?.user?.login}</p>
-                <p> <img src={userData?.user?.avatar_url} alt="logo" /> </p>
+              {JSON.stringify(userIpData)}
             </>
          )
      }
   
-
-      
       <button onClick={() => getUserIpData()} > Click to see Ip Data </button>
-     
-      {/* {
-          userData && JSON.stringify(userData)
-      } */}
-
     </div>
 
   )
