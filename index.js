@@ -5,9 +5,11 @@ const { path } = require('express/lib/application');
 const app= express();
 app.use(cors());
 
+
+console.log('======= before : ', req?.inInfo);
 const expressip = require('express-ip');
 app.use(expressip().getIpInfoMiddleware);
-
+console.log('******* After : ', req?.inInfo);
 
 app.get("/api", (req, res) => {
     const user= req.query.user || 'swat1508';
@@ -25,7 +27,8 @@ if(process.env.NODE_ENV === 'production') {
   }
 
   app.get('/client-cokkie-handler', function (req, res) {
-    console.log('req.ipInfo ===>>>>> ', req.ipInfo);
+    console.log('req.ipInfo ===>>>>> ', req?.ipInfo);
+    
     res.json({
         ipData: req.ipInfo
     })
