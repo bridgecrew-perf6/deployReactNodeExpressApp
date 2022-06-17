@@ -1,12 +1,11 @@
+import './UserComp.css';
 import React, { useState } from "react";
 
 const UserComp = () => {
   const [userIpData, setUserIpData] = useState(null);
 
   const getUserIpData = () => {
-    console.log("getUserIpData");
-
-    fetch("/client-cokkie-handler")
+    fetch("/client-cookie-handler")
       .then((res) => res.json())
       .then((data) => {
         console.log("data from server is : ", data?.ipData);
@@ -41,7 +40,7 @@ const UserComp = () => {
         </div>
       )}
 
-      <button onClick={() => getUserIpData()}> Click to see Ip Data </button>
+      <button onClick={() => getUserIpData()}> Display Ip Data </button>
     </div>
   );
 };
