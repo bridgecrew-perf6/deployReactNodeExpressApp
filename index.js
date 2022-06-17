@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const axios= require('axios');
-const { path } = require('express/lib/application');
+const { path } = require('path');
 const app= express();
 app.use(cors());
 const expressip = require('express-ip');
@@ -24,7 +24,6 @@ app.use((req,res,nextMiddleware) => {
 
 app.get("/api", (req, res) => {
     const user= req.query.user || 'swat1508';
-    console.log('req is : ', req);
     axios.get(`https://api.github.com/users/${user}`)
     .then(response => {
         res.json({user: response.data});
@@ -39,10 +38,10 @@ if(process.env.NODE_ENV === 'production') {
   }
 
   app.get('/client-cokkie-handler', function (req, res) {
-    console.log('req.ipInfo ===>>>>> ', req?.ip);
+    console.log('req.ipInfo ===>>>>> ', req?.ipInfo);
 
     res.json({
-        ipData: req.ip
+        ipData: req?.ipInfo
     })
   })
 
