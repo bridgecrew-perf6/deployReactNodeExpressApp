@@ -8,7 +8,7 @@ const expressip = require('express-ip');
 
 app.use((req,res,nextMiddleware) => {
     console.log('********* before usimg express-ip ******');
-    console.log('req.ip earlier is : ', req?.ipInfo);
+    console.log('req.ipInfo earlier is : ', req?.ipInfo);
     nextMiddleware();
   })
 
@@ -17,7 +17,7 @@ app.use(expressip().getIpInfoMiddleware);
 
 app.use((req,res,nextMiddleware) => {
     console.log('++++++++++++ after usimg express-ip ******');
-    console.log('req.ip now is : ', req?.ipInfo);
+    console.log('req.ipInfo now is : ', req?.ipInfo);
     nextMiddleware();
 })
 
@@ -38,10 +38,13 @@ if(process.env.NODE_ENV === 'production') {
   }
 
   app.get('/client-cokkie-handler', function (req, res) {
+    console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-');
     console.log('req.ipInfo ===>>>>> ', req?.ipInfo);
+    const sampleData= ['user1', 'user2', 'user3'];
 
     res.json({
-        ipData: req?.ipInfo
+        // ipData: req?.ipInfo
+        ipData: sampleData
     })
   })
 

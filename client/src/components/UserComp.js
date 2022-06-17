@@ -24,11 +24,7 @@ const UserComp = () =>  {
       .then(data =>  console.log('data from server is : ' ,  data?.users) );
       */
       fetch('/client-cokkie-handler')
-      .then(res => {
-        console.log('res is : ',  res);
-        return res.json()
-      }
-        )
+      .then(res => res.json())
       .then(data =>  console.log('data from server is : ' ,  data?.ipData) );
 
     }
