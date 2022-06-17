@@ -32,21 +32,24 @@ app.get("/api", (req, res) => {
 
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
+    app.get('/client-cokkie-handler', function (req, res) {
+        console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-');
+        console.log('req.ipInfo ===>>>>> ', req?.ipInfo);
+        const sampleData= ['user1', 'user2', 'user3'];
+    
+        res.json({
+            // ipData: req?.ipInfo
+            ipData: sampleData
+        })
+      })
+
+      
     app.get('*', (req,res) => {
         res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
     })
   }
 
-  app.get('/client-cokkie-handler', function (req, res) {
-    console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-');
-    console.log('req.ipInfo ===>>>>> ', req?.ipInfo);
-    const sampleData= ['user1', 'user2', 'user3'];
 
-    res.json({
-        // ipData: req?.ipInfo
-        ipData: sampleData
-    })
-  })
 
 const serverPort = process.env.PORT || 5000;  
 
