@@ -15,7 +15,9 @@ const UserComp = () => {
 
   return (
     <div>
-      <h2> User Ip Data will display Below :</h2>
+      <h2>Click on Button - Display Ip Data </h2>
+      <h3>User Ip Data will display Below :</h3>
+
       {userIpData && (
         <div className="user-data-display">
           <div className="user-label-value">
@@ -40,7 +42,7 @@ const UserComp = () => {
         </div>
       )}
 
-      <button onClick={() => getUserIpData()}> Display Ip Data </button>
+      <button className='display-ip-data-btn' onClick={() => getUserIpData()}> Display Ip Data </button>
     </div>
   );
 };
