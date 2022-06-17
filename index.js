@@ -39,10 +39,10 @@ if(process.env.NODE_ENV === 'production') {
   }
 
   app.get('/client-cokkie-handler', function (req, res) {
-    console.log('req.ipInfo ===>>>>> ', req?.ipInfo);
+    console.log('req.ipInfo ===>>>>> ', req?.ip);
 
     res.json({
-        ipData: req.ipInfo
+        ipData: req.ip
     })
   })
 
