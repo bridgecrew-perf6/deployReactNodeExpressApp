@@ -13,6 +13,11 @@ const UserComp = () => {
       });
   };
 
+  const getUserIpData2 = () => {
+    console.log('getUserIpData2 !!!!');
+    // fetch("/client-cookie-handler2")
+  };
+
   return (
     <div>
       <h2>Click on Button - Display Ip Data </h2>
@@ -43,6 +48,9 @@ const UserComp = () => {
       )}
 
       <button className='display-ip-data-btn' onClick={() => getUserIpData()}> Display Ip Data </button>
+
+      <hr/>
+      <button className='display-ip-data-btn' onClick={() => getUserIpData2()}> Display Ip Data2 </button>
     </div>
   );
 };

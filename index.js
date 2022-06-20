@@ -5,6 +5,7 @@ const app= express();
 app.use(cors());
 const expressip = require('express-ip');
 
+// const WebServiceClient = require('@maxmind/geoip2-node').WebServiceClient;
 /*
 app.use((req,res,nextMiddleware) => {
     console.log('********* before usimg express-ip ******');
@@ -27,11 +28,30 @@ app.use((req,res,nextMiddleware) => {
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 
+/*
+    app.get('/client-cookie-handler2', function (req, res) {
+      console.log('second button clicked !!!!');
+
+      // To query the GeoLite2 web service, you must set the optional `host` parameter
+      const client = new WebServiceClient('732637', 'xBcsGDYo5ZHlDtEx', {host: 'geolite.info'});
+      
+      client.country('23.108.96.79').then(response => {
+        console.log(response?.country?.isoCode); // 'CA'
+      });
+    });
+    */
+
+
     app.get('/client-cookie-handler', function (req, res) {
         
         res.json({
             ipData: req?.ipInfo
         })
+      })
+
+      app.get('/client-cookie-handler2', function (req, res) {
+
+        console.log('server file ===>> client-cookie-handler2 !!!!!');
       })
 
 
