@@ -34,11 +34,12 @@ if(process.env.NODE_ENV === 'production') {
 
       // To query the GeoLite2 web service, you must set the optional `host` parameter
       const client = new WebServiceClient('732637', 'xBcsGDYo5ZHlDtEx', {host: 'geolite.info'});
-      console.log('req-obj is : ', req);
       console.log('req-ip is : ', req?.ip);
+      console.log('req-ipInfo is : ', req?.ipInfo);
       
       client.country('23.108.96.79').then(response => {
-        console.log(response);
+        console.log('country - isoCode ==>> ', response?.country?.isoCode);
+        console.log('registeredCountry - isoCode ==>> ', response?.registeredCountry?.isoCode);
         res.json({
           ipData2: response
       })
