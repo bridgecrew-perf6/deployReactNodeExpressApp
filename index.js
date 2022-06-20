@@ -5,7 +5,7 @@ const app= express();
 app.use(cors());
 const expressip = require('express-ip');
 
-// const WebServiceClient = require('@maxmind/geoip2-node').WebServiceClient;
+const WebServiceClient = require('@maxmind/geoip2-node').WebServiceClient;
 /*
 app.use((req,res,nextMiddleware) => {
     console.log('********* before usimg express-ip ******');
