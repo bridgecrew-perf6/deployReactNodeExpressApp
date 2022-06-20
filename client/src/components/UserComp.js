@@ -15,7 +15,7 @@ const UserComp = () => {
 
   const getUserIpData2 = () => {
     console.log('getUserIpData2 !!!!');
-    // fetch("/client-cookie-handler2")
+    fetch("/client-cookie-handler2")
   };
 
   return (
