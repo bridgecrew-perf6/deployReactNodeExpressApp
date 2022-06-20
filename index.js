@@ -31,14 +31,14 @@ if(process.env.NODE_ENV === 'production') {
 
     app.get('/client-cookie-handler2', function (req, res) {
       console.log('second button clicked !!!!');
-/*
+
       // To query the GeoLite2 web service, you must set the optional `host` parameter
       const client = new WebServiceClient('732637', 'xBcsGDYo5ZHlDtEx', {host: 'geolite.info'});
       
       client.country('23.108.96.79').then(response => {
         console.log(response?.country?.isoCode); // 'CA'
       });
-         */
+         
     });
  
 
