@@ -16,6 +16,11 @@ const UserComp = () => {
   const getUserIpData2 = () => {
     console.log('getUserIpData2 !!!!');
     fetch("/client-cookie-handler2")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("data from server is : ", data?.ipData2);
+      
+    });
   };
 
   return (
