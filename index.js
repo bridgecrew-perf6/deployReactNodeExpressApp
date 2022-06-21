@@ -28,8 +28,16 @@ app.use((req,res,nextMiddleware) => {
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 
+    // express-ip
+    app.get('/get-express-ip-data', function (req, res) {
+      console.log('first button clicked !!!!');
+      res.json({
+          expressIpFetchedData: req?.ipInfo
+      })
+    })
 
-    app.get('/client-cookie-handler2', function (req, res) {
+  // GeoLite2
+    app.get('/get-geoIpLite2-data', function (req, res) {
       console.log('second button clicked !!!!');
 
       // To query the GeoLite2 web service, you must set the optional `host` parameter
@@ -39,10 +47,29 @@ if(process.env.NODE_ENV === 'production') {
       console.log('req-ipInfo-ip is : ', req?.ipInfo?.ip);
 
       client.country(req?.ipInfo?.ip).then(response => {
-        console.log('country - isoCode ==>> ', response?.country?.isoCode);
-        // console.log('registeredCountry - isoCode ==>> ', response?.registeredCountry?.isoCode);
+        console.log('get-geoIpLite2-data ==>> country - isoCode ==>> ', response?.country?.isoCode);
         res.json({
-          ipData2: response
+          geoIpLite2FetchedData: response
+      })
+      });
+         
+    });
+
+
+    // GeoIp2
+    app.get('/get-geoIp2-data', function (req, res) {
+      console.log('third button clicked !!!!');
+
+      // To query the GeoLite2 web service, you must set the optional `host` parameter
+      const client = new WebServiceClient('732637', 'xBcsGDYo5ZHlDtEx');
+      console.log('req-ip is : ', req?.ip);
+      console.log('req-ipInfo is : ', req?.ipInfo);
+      console.log('req-ipInfo-ip is : ', req?.ipInfo?.ip);
+
+      client.country(req?.ipInfo?.ip).then(response => {
+        console.log('get-geoIp2-data ==> response ==>> ', response);
+        res.json({
+          geoIp2FetchedData: response
       })
       });
          
@@ -50,17 +77,9 @@ if(process.env.NODE_ENV === 'production') {
  
 
 
-    app.get('/client-cookie-handler', function (req, res) {
-        
-        res.json({
-            ipData: req?.ipInfo
-        })
-      })
 
-      app.get('/client-cookie-handler2', function (req, res) {
 
-        console.log('server file ===>> client-cookie-handler2 !!!!!');
-      })
+
 
 
     app.get('*', (req,res) => {
