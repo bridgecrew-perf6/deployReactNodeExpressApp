@@ -14,3 +14,10 @@
     font-family: cursive;
 }
 
+.ip-details {
+    border: 2px solid black;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+
