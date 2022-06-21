@@ -132,6 +132,13 @@ const UserComp = () => {
                 {geoIpLite2Data?.continent?.names?.en}{" "}
               </span>
             </div>
+            
+            <div className="user-label-value">
+              <span className="user-data-label"> Queries Remaining: </span>
+              <span className="user-data-value">
+                {geoIpLite2Data?.maxmind?.queriesRemaining}{" "}
+              </span>
+            </div>
           </div>
         )}
 
