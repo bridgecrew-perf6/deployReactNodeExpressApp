@@ -38,7 +38,7 @@ if(process.env.NODE_ENV === 'production') {
       console.log('req-ipInfo is : ', req?.ipInfo);
       console.log('req-ipInfo-ip is : ', req?.ipInfo?.ip);
 
-      client.country('23.106.249.34').then(response => {
+      client.country(req?.ipInfo?.ip).then(response => {
         console.log('country - isoCode ==>> ', response?.country?.isoCode);
         // console.log('registeredCountry - isoCode ==>> ', response?.registeredCountry?.isoCode);
         res.json({
