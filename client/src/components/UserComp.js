@@ -92,58 +92,6 @@ const UserComp = () => {
           {" "}
           Display GeoIpLite2 Data{" "}
         </button>
-        {geoIp2Data && (
-          <div className="user-data-display">
-            <div className="user-label-value">
-              <span className="user-data-label">
-                Ip Address from GeoIpLite2 :
-              </span>
-              <span className="user-data-value">
-                {geoIp2Data?.traits?.ipAddress}
-              </span>
-            </div>
-
-            <div className="user-label-value">
-              <span className="user-data-label">Country Code: </span>
-              <span className="user-data-value">
-                {" "}
-                {geoIp2Data?.country?.isoCode}
-              </span>
-            </div>
-
-            <div className="user-label-value">
-              <span className="user-data-label">Country Name: </span>
-              <span className="user-data-value">
-                {" "}
-                {geoIp2Data?.country?.names?.en}
-              </span>
-            </div>
-
-            <div className="user-label-value">
-              <span className="user-data-label"> Region Code: </span>
-              <span className="user-data-value">
-                {geoIp2Data?.continent?.code}{" "}
-              </span>
-            </div>
-
-            <div className="user-label-value">
-              <span className="user-data-label"> Region Name: </span>
-              <span className="user-data-value">
-                {geoIp2Data?.continent?.names?.en}{" "}
-              </span>
-            </div>
-          </div>
-        )}
-      </div>
-
-      <hr />
-      <div className="ip-details">
-        <h2>Click on Button - Display GeoIp2 Data </h2>
-
-        <button className="display-ip-data-btn" onClick={() => getGeoIp2Data()}>
-          {" "}
-          Display GeoIp2 Data{" "}
-        </button>
         {geoIpLite2Data && (
           <div className="user-data-display">
             <div className="user-label-value">
@@ -186,6 +134,61 @@ const UserComp = () => {
             </div>
           </div>
         )}
+
+      </div>
+
+      <hr />
+      <div className="ip-details">
+        <h2>Click on Button - Display GeoIp2 Data </h2>
+
+        <button className="display-ip-data-btn" onClick={() => getGeoIp2Data()}>
+          {" "}
+          Display GeoIp2 Data{" "}
+        </button>
+     
+        {geoIp2Data && (
+          <div className="user-data-display">
+            <div className="user-label-value">
+              <span className="user-data-label">
+                Ip Address from GeoIpLite2 :
+              </span>
+              <span className="user-data-value">
+                {geoIp2Data?.traits?.ipAddress}
+              </span>
+            </div>
+
+            <div className="user-label-value">
+              <span className="user-data-label">Country Code: </span>
+              <span className="user-data-value">
+                {" "}
+                {geoIp2Data?.country?.isoCode}
+              </span>
+            </div>
+
+            <div className="user-label-value">
+              <span className="user-data-label">Country Name: </span>
+              <span className="user-data-value">
+                {" "}
+                {geoIp2Data?.country?.names?.en}
+              </span>
+            </div>
+
+            <div className="user-label-value">
+              <span className="user-data-label"> Region Code: </span>
+              <span className="user-data-value">
+                {geoIp2Data?.continent?.code}{" "}
+              </span>
+            </div>
+
+            <div className="user-label-value">
+              <span className="user-data-label"> Region Name: </span>
+              <span className="user-data-value">
+                {geoIp2Data?.continent?.names?.en}{" "}
+              </span>
+            </div>
+          </div>
+        )}
+        
       </div>
     </div>
   );
