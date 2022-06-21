@@ -64,7 +64,7 @@ const UserComp = () => {
         <div className="user-data-display">
           <div className="user-label-value">
             <span className="user-data-label">Ip Address from GeoIpLite2 :</span>
-            <span className="user-data-value">{userIpData?.traits?.ipAddress}</span>
+            <span className="user-data-value">{userIpData2?.traits?.ipAddress}</span>
           </div>
 
           <div className="user-label-value">
@@ -74,7 +74,7 @@ const UserComp = () => {
 
           <div className="user-label-value">
             <span className="user-data-label"> Region : </span>
-            <span className="user-data-value">{userIpData?.continent?.code} </span>
+            <span className="user-data-value">{userIpData2?.continent?.code} </span>
           </div>
         </div>
       )}
