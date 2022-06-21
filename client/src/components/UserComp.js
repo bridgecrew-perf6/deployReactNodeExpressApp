@@ -60,7 +60,7 @@ const UserComp = () => {
         {expressIpData && (
           <div className="user-data-display">
             <div className="user-label-value">
-              <span className="user-data-label">Ip Address :</span>
+              <span className="user-data-label">Ip Address from express-ip is :</span>
               <span className="user-data-value">{expressIpData?.ip}</span>
             </div>
 
@@ -150,7 +150,7 @@ const UserComp = () => {
           <div className="user-data-display">
             <div className="user-label-value">
               <span className="user-data-label">
-                Ip Address from GeoIpLite2 :
+                Ip Address from GeoIp2 :
               </span>
               <span className="user-data-value">
                 {geoIp2Data?.traits?.ipAddress}
@@ -188,7 +188,7 @@ const UserComp = () => {
             </div>
           </div>
         )}
-        
+
       </div>
     </div>
   );
